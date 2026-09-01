@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: xCLOUD OS Foundation API
+  version: 0.1.0
+  description: Contract iniziale per workspace, missioni ed eventi aziendali.
+paths:
+  /health:
+    get:
+      summary: Stato del servizio
+      responses:
+        '200':
+          description: Servizio disponibile
+  /api/v1/workspaces/{workspaceId}/missions:
+    get:
+      summary: Elenca le missioni del workspace
+      parameters:
+        - name: workspaceId
+          in: path
+          required: true
+          schema: {type: string}
+      responses:
+        '200': {description: Lista missioni}
+        '401': {description: Non autenticato}
+  /api/v1/workspaces/{workspaceId}/events:
+    post:
+      summary: Registra un evento operativo
+      parameters:
+        - name: workspaceId
+          in: path
+          required: true
+          schema: {type: string}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [event_type]
+              properties:
+                event_type: {type: string}
+                payload: {type: object}
+      responses:
+        '201': {description: Evento registrato}
+        '401': {description: Non autenticato}

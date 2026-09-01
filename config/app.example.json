@@ -1,0 +1,21 @@
+{
+  "name": "xCLOUD OS",
+  "version": "0.1.0",
+  "environment": "development",
+  "features": {
+    "missionControl": true,
+    "enterpriseGraph": true,
+    "crm": false,
+    "projects": false,
+    "finance": false,
+    "aiAgents": false,
+    "automations": false,
+    "enterpriseMemory": false,
+    "dsnTrustLayer": false
+  },
+  "security": {
+    "requireAuthentication": true,
+    "auditLog": true,
+    "defaultRole": "viewer"
+  }
+}
